@@ -4,7 +4,6 @@ on: push
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    # Equal
     continue-on-error: true
     strategy:
       max-parallel: 6
@@ -12,6 +11,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16, 18]
+        include:
+          - os: macos-latest
+          - node: 12
+        exclude:
+          - os: windows-latest
+          - node: 14
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
