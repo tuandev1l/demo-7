@@ -2,8 +2,8 @@ name: Website Deployment
 on:
   push:
     branches:
-      - main
-      - master
+      - 'main'
+      - 'master'
 jobs:
   lint:
     runs-on: ubuntu-latest
