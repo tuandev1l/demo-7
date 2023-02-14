@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout and Install dependencies
-        uses: ./.github/workflows/reuse.yml
+        uses: ./.github/workflows/checkout-and-install-dependencies.yml
       - name: Lint code
         run: npm run lint
   # test:
