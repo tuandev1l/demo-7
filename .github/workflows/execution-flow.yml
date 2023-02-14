@@ -7,7 +7,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/checkout-and-install-dependencies.yml
+    uses: ./.github/workflows/checkout-and-install.yml
     # steps:
     #   # - name: Checkout and Install dependencies
     #   - name: Lint code
