@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Json file
-          path: package.json
+          path: ./package.json
           if-no-files-found: error
       - name: Log2
         run: echo "End"
