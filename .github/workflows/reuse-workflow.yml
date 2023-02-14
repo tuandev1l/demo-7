@@ -7,4 +7,5 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/reuse.yml
-    # with:
+    with:
+      file-name: package.json
