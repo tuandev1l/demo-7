@@ -6,6 +6,12 @@ on:
       - master
 jobs:
   build:
-    uses: ./.github/workflows/reuse.yml
-    with:
-      file-name: package.json
+    # uses: ./.github/workflows/reuse.yml
+    # with:
+    #   file-name: package.json
+    - name: Upload File
+      uses: actions/upload-artifact@v3
+      with:
+        name: json-file
+        path: package.json
+        if-no-files-found: error
