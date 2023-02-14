@@ -4,6 +4,8 @@ jobs:
   checkout-and-install-dependencies:
     runs-on: ubuntu-latest
     steps:
+      - name: Log
+        run: echo "Start"
       - name: Get code
         uses: actions/checkout@v3
       - name: Cache dependencies
@@ -15,3 +17,5 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Log
+        run: echo "End"
