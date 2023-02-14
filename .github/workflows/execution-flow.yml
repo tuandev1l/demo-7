@@ -8,10 +8,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     uses: ./.github/workflows/checkout-and-install-dependencies.yml
-    steps:
-      # - name: Checkout and Install dependencies
-      - name: Lint code
-        run: npm run lint
+    # steps:
+    #   # - name: Checkout and Install dependencies
+    #   - name: Lint code
+    #     run: npm run lint
   # test:
   #   runs-on: ubuntu-latest
   #   steps:
