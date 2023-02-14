@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 6
-      fail-fast: fail
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16, 18]
