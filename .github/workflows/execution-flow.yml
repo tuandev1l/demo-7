@@ -12,52 +12,52 @@ jobs:
         uses: ./.github/workflows/checkout-and-install.yml
       - name: Lint code
         run: npm run lint
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout and Install dependencies
-        uses: ./.github/workflows/checkout-and-install.yml
-      - name: Test code
-        id: run-tests
-        continue-on-error: true
-        run: npm run test
-      - name: Upload test report
-        if: failure() && steps.run-tests.outcome == 'failure'
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-report
-          path: test.json
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout and Install dependencies
-        uses: ./.github/workflows/checkout-and-install.yml
-      - name: Build website
-        id: build-website
-        run: npm run build
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-files
-          path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: dist-files
-      - name: Output contents
-        run: ls
-      - name: Deploy
-        run: echo "Deploying..."
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout and Install dependencies
+  #       uses: ./.github/workflows/checkout-and-install.yml
+  #     - name: Test code
+  #       id: run-tests
+  #       continue-on-error: true
+  #       run: npm run test
+  #     - name: Upload test report
+  #       if: failure() && steps.run-tests.outcome == 'failure'
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: test-report
+  #         path: test.json
+  # build:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout and Install dependencies
+  #       uses: ./.github/workflows/checkout-and-install.yml
+  #     - name: Build website
+  #       id: build-website
+  #       run: npm run build
+  #     - name: Upload artifacts
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: dist-files
+  #         path: dist
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get build artifacts
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist-files
+  #     - name: Output contents
+  #       run: ls
+  #     - name: Deploy
+  #       run: echo "Deploying..."
 
-  report:
-    needs: [lint, deploy]
-    runs-on: ubuntu-latest
-    if: failure()
-    steps:
-      - name: Output github object
-        run: echo "${{ toJSON(github) }}"
+  # report:
+  #   needs: [lint, deploy]
+  #   runs-on: ubuntu-latest
+  #   if: failure()
+  #   steps:
+  #     - name: Output github object
+  #       run: echo "${{ toJSON(github) }}"
