@@ -2,8 +2,9 @@ name: Reusable Workflow
 on:
   push:
     branches:
-      - 'main'
-      # - 'master'
+      - main
+      - master
 jobs:
   build:
     uses: ./.github/workflows/reuse.yml
+    # with:
