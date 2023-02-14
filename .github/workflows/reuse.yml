@@ -19,7 +19,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: json-file
-          path: package.json
+          path: ${{ inputs.file-name }}
           if-no-files-found: error
       - name: Log2
         run: echo "End"
