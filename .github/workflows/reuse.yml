@@ -1,27 +1,10 @@
 name: Reuse yml
 on: workflow_call
 jobs:
-  runs-on: ubuntu-latest
+  log:
+    runs-on: ubuntu-latest
     steps:
       - name: Log
         run: echo "Start"
-
-      - name: Log
+      - name: Log2
         run: echo "End"
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Get code
-  #       uses: actions/checkout@v3
-  #     - name: Cache dependencies
-  #       id: cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: node_modules
-  #         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-  #     - name: Install dependencies
-  #       if: steps.cache.outputs.cache-hit != 'true'
-  #       run: npm ci
-  #     - name: Build website
-  #       id: build-website
-  #       run: npm run build
