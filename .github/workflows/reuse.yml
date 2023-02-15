@@ -8,18 +8,17 @@ on:
         required: false
         type: string
 jobs:
-  log:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log
-        run: echo "Start"
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Upload File
-        uses: actions/upload-artifact@v3
-        with:
-          name: json-file
-          path: ${{ inputs.file-name }}
-          if-no-files-found: error
-      - name: Log2
-        run: echo "End"
+  runs-on: ubuntu-latest
+  steps:
+    - name: Log
+      run: echo "Start"
+    - name: Get code
+      uses: actions/checkout@v3
+    - name: Upload File
+      uses: actions/upload-artifact@v3
+      with:
+        name: json-file
+        path: ${{ inputs.file-name }}
+        if-no-files-found: error
+    - name: Log2
+      run: echo "End"
